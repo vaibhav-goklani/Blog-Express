@@ -10,20 +10,20 @@
   <%- include('./partials/nav') %>
   <div class="container mt-4">
     <form action="/user/signup" method="post">
-      <div class="mb-3">
-        <label for="fullName" class="form-label">Full Name</label>
-        <input type="text" class="form-control" id="fullName" name="fullName">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="fullName" placeholder="name@example.com" name="fullName">
+        <label for="fullName">Full Name</label>
       </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email">
+        <label for="email">Email address</label>
       </div>
-      <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" name="password">
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+        <label for="password">Password</label>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary mb-3">Submit</button>
+      <p>Already have an account? <a href="/user/signin">Signin</a></p>
     </form>
   </div>
 

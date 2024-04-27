@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
 const dotenv = require('dotenv').config();
+const cookieParser = require('cookie-parser');
+const { checkForAuthenticationCookie } = require('./middlewares/authentication');
 
 const userRoute = require('./routes/user');
 const connectToMongoDB = require('./connect');
@@ -17,10 +19,14 @@ app.set('views', path.resolve('./views'));
 
 // MIDDLEWARES
 app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(checkForAuthenticationCookie("token"));
 
 // ROUTE DEFINITIONS
 app.get('/', (req, res) => {
-    res.render('home');
+    res.render('home', {
+        user: req.user,
+    });
 });
 
 app.use('/user', userRoute);
