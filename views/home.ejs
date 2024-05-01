@@ -6,6 +6,22 @@
 </head>
 <body>
     <%- include('./partials/nav') %>
+
+    <div class="container mt-3">
+        <div class="row row-cols-3 justify-content-around">
+            <% locals.blogs.forEach(blog => { %>
+                <div class="card col p-0 mb-3" style="width: 18rem;">
+                    <img src="<%= blog.coverImageUrl %>" class="card-img-top rounded">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= blog.title %></h5>
+                        <p class="card-text"><%= blog.description %></p>
+                        <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
     <%- include('./partials/script') %>
 </body>
 </html>

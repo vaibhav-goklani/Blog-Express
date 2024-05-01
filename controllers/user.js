@@ -7,8 +7,9 @@ async function handleUserSignup(req, res) {
         email,
         password,
     });
-    return res.redirect('/');
-}
+    const token = await User.matchPasswordAndGenerateToken(email, password);
+    return res.cookie("token", token).redirect('/');
+};
 
 async function handleUserSignin(req, res) {
     const { email, password } = req.body;
@@ -21,8 +22,7 @@ async function handleUserSignin(req, res) {
             error: "Incorrect Email or Password",
         })
     }
-
-}
+};
 
 module.exports = {
     handleUserSignup,
