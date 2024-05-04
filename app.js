@@ -1,6 +1,6 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
-const dotenv = require('dotenv').config();
 const cookieParser = require('cookie-parser');
 
 const { checkForAuthenticationCookie } = require('./middlewares/authentication');
@@ -9,7 +9,7 @@ const blogRoute = require('./routes/blog');
 const connectToMongoDB = require('./connect');
 const Blog = require('./models/blog');
 
-const PORT = process.env.PORT || 8001;
+const PORT = process.env.PORT || 8000;
 const app = express();
 
 // CONNECTIONS
